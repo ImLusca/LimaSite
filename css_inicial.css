@@ -1,0 +1,378 @@
+.hide{
+    display: none !important;
+}
+
+#wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    align-content: center;
+}
+
+.typeform{
+    width: 300px;
+}
+
+#content{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #EFEFEF;
+    overflow-x: hidden;
+}
+
+#content #wrapper h2{
+    font-family: 'Montserrat', sans-serif;
+    color: #32A457;
+    font-size: 1.5rem;
+}
+
+#content #wrapper h3{
+    font-family: 'Montserrat', sans-serif;
+    color: #32A457;
+    font-size: 1.3rem;
+    margin-top: 40px;
+}
+
+#content #wrapper h4{
+    font-family: 'Montserrat', sans-serif;
+    color: #444444;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+#content #wrapper .session{
+    margin-top: 40px;
+    min-width: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#content #wrapper .session .text{
+    max-width: 400px;
+}
+
+#content #wrapper .session .text h2{
+    font-family: 'Montserrat', sans-serif;
+    color: #32A457;
+    font-size: 1.5rem;
+}
+
+#content #wrapper .session .text p{
+    color: #626262;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+#content #wrapper .session .session-2{
+    display: flex;
+    flex-direction: column;
+}
+
+#content #wrapper .session .session-2 img{
+    margin-top: 40px;
+}
+
+#content #wrapper .session .session-2 .subsession{
+    margin-top: 20px;
+}
+
+#content #wrapper .session img{
+    width: 400px;
+    height: 300px;
+    border-radius: 20px;
+}
+
+.contato{
+    background-color: #57bb63ff;
+    position: fixed;
+    width: 150px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    -webkit-box-shadow: 0px 23px 22px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 23px 22px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 23px 22px 0px rgba(0,0,0,0.2);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-right: 50px;
+    margin-bottom: 40px;
+    padding: 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    z-index: 9999;
+    color: #FFF;
+}
+
+.contato img{
+    margin-right: 10px;
+    width: 20px;
+}
+
+.form{
+    margin-top: 40px;
+}
+
+.form .agroup{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    min-width: 800px;
+    background-color: #CDCDCD;
+    border-radius: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.form .agroup .group{
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.form .agroup .group label{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: #626262;
+}
+
+.form .agroup .group input, 
+.form .agroup .group textarea{
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #E8E8E8;
+    padding: 10px;
+    font-size: 1rem;
+    color: #212121;
+    font-family: 'Roboto', sans-serif;
+}
+
+select{
+    -webkit-appearance: none; 
+    padding: 10px;
+    -moz-appearance: none; /* Remove estilo padrão do FireFox */   
+    appearance: none; /* Remove estilo padrão do FireFox*/   
+    background: url(http://www.webcis.com.br/images/imagens-noticias/select/ico-seta-appearance.gif) no-repeat #eeeeee;  /* Imagem de fundo (Seta) */   
+    background-position: 98%;  /*Posição da imagem do background*/   
+    border: none;    
+    outline: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #626262;
+}
+
+.form .agroup .group .msg{
+    padding-bottom: 80px;
+}
+
+.form .agroup .group button{
+    margin-top: 20px;
+    background-color: #32A457;
+    border: none;
+    color: #FFF;
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.new-element{
+    color: #212121;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+.new-element span{
+    color: red;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.btn-solicitar{
+    background-color: #32A457;
+    width: 100%;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+
+.item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: #444444;
+    font-size: 1.1rem;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.align-item{
+    justify-content: flex-start !important;
+}
+
+.item p{
+    text-align: center;
+}
+
+.item > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+    align-content: center;
+    justify-items: flex-end;
+}
+
+.agroup-itens .group{
+    align-items: center;
+}
+
+.item .qnt-item{
+    width: 20px;
+    height: 10px;
+    margin-right: 10px;
+    text-align: center;
+    color: #444444;
+}
+
+.checkbox-wrapper {
+    position: relative;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-bottom: 25px;
+    margin-right: 10px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #32A457;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  @media (max-width: 910px) {
+    #content{
+        align-content: center;
+    }
+    
+    #wrapper{
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-content: center !important;
+        margin-top: 120px;
+        width: 410px !important;
+    }
+
+    .session{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        min-width: 100px !important;
+    }
+
+    .text{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .form{
+        flex-direction: column;
+        max-width: 300px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 80px;
+    }
+    
+    .agroup{
+        flex-direction: column !important;
+        min-width: 50px !important;
+    }
+
+    .formselect{
+        margin-top: 50px;
+    }
+  }

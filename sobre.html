@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sobre</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./framework/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <section class="banner">
+        <header>
+            <img src="./logo.png" alt="" class="logo" onclick="toggle();">
+            <div class="toggle" onclick="toggle();"></div>
+        </header>
+
+
+        <h1 class="titulo_sobre">Com a <span style="color: #4bb5ab;">Lima </span> , se mudar deixa de ser uma dor de cabeça para se tornar uma experiência rápida e eficaz.</h1>
+        <div class="conteudo">
+            
+            <div class="texto">
+                <h2>A empresa</h2>
+                <p>
+                    A Lima é uma empresa especializada em mudanças fundada há mais de 20 anos. Desde a sua concepção, a empresa sempre prezou pela qualidade do serviço e o conforto do cliente que sempre tem certeza de que sua entrega chegará inteira, no prazo e sem dores de cabeça durante o processo.
+                </p>
+                <p>Assim, com o passar dos anos; o serviço de excelência; a confiabilidade da mudança; a cordilidade do tratamento com o cliente e o esforço dos proprietários, a empresa passou a crescer devido à recomedação dos clientes que sempre elogiaram e recomendaram os serviços da Lima sem receio algum.</p>
+                           
+            </div>
+            <div class="imagens">
+                <img src="./assets/enterprise.jpg" class="inicio-esq final" alt="" style="width: auto;">
+            </div>
+        </div>
+
+
+        <div class="conteudo">
+            <div class="imagens">
+                <img src="./assets/movers.png" alt="Entregadores" >
+            </div>
+            <div class="texto">
+                <h2>A Equipe</h2>
+                <p>Com uma equipe especializada na realização de serviços para clientes que exigem o máximo comprometimento, a Lima vem se destacando ao realizar um serviço ágil, confiável e extremamente profissional. </p>
+                             
+            </div>
+        </div>
+        <ul class="menu">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="#" onclick="toggle();">Sobre nós</a></li>
+            <li><a href="./limabox.html">Lima Box</a></li>
+            <li><a href="./galeria.html">Galeria</a></li>  
+            <li><a href="./contato.html">Contato</a></li>            
+            <li><a href="./orcamento.html">Orçamento</a></li>
+        </ul>
+
+        <div id="vantagens">
+              <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="texto inicio-esq">
+                      <h1>Por que a lima?</h1>
+                      <p>Diferente das outras empresas de mudança, a Lima ofereçe um serviço personalizado atendendo às necessidades do cliente prezando sempre pelo bem-estar e comodidade</p>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 col-sm-12 offset-lg-1">
+                    <div class="cartao inicio-dir">
+                      <div class="motivos">
+                        <h2>Empresa comprometida</h2>
+                        <p>Há mais de 20 anos no mercado, a Lima se mostra uma empresa sólida e altamente comprometida com o seu serviço. </p>
+                      </div>
+                      <div class="motivos">
+                        <h2>Alta qualidade</h2>
+                        <p>Certamente, o que garantiu à Lima toda essa longevidade é a qualidade do seu serviço que fez com que sempre o nome Lima estivesse na ponta da lingua dos seus cliente prontos para recomendar a emrpesa sem medo nenhum. </p>
+                      </div>
+                      <div class="motivos">
+                        <h2>Anos de experiência</h2>
+                        <p>Funcionários com anos de experiência lidanddo com os mais diversos tipos de mudanças e necessidades des clientes. </p>
+                      </div>
+
+                    </div>
+                </div>
+              </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="./framework/jquery-3.5.1.min.js"></script>
+    <script src="./framework/bootstrap.min.js" ></script>
+
+    <script type="text/javascript">
+        function toggle(){
+            const toggle = document.querySelector('.toggle');
+            const banner = document.querySelector('.banner');
+
+            toggle.classList.toggle('ativo');
+            banner.classList.toggle('ativo')
+        }
+        function tamanho(){
+            const conteudo = document.querySelector('.conteudo')
+            const cabecalho = document.querySelector('header')
+
+            conteudo.style.marginTop = cabecalho.style.height + 20;
+
+            aparece()
+
+        }
+        window.onload = tamanho()
+        window.onscroll = function() {myFunction()};
+
+        var navbar = document.querySelector("header");
+
+        function myFunction() {
+        if (window.pageYOffset != 0) {
+            navbar.classList.add("preso")
+        } else {
+            navbar.classList.remove("preso");
+          }
+        }
+
+        function aparece(){            
+            $('body').animate({
+                opacity: 1
+            },800, function(){})
+        }
+
+
+        
+    </script>
+</body>
+</html>

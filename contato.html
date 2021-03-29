@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./framework/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <section class="banner">
+        <header>
+            <img src="./logo.png" alt="" class="logo" onclick="toggle();">
+            <div class="toggle" onclick="toggle();"></div>
+        </header>
+        <div class="conteudo">
+            <div class="formulario">
+                <img src="./assets/caminhao_contato.png">
+                <div class="form-group">
+                    <form class="row" style="margin-top: 3.5rem;">
+                        <div class="col-md-12 col-lg-8">                     
+                            <div class="conj-inp">
+                            <input type="text" id="inp_nome" autocomplete="none" required>
+                            <label for="inp_nome">Nome</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="conj-inp">
+                            <input type="number" id="inp_telefone" autocomplete="none"required>
+                            <label for="inp_telefone">Telefone</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-8">
+                            <div class="conj-inp">
+                            <input id="inp_email" autocomplete="none" required>
+                            <label for="inp_email">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="conj-inp">
+                            <input id="inp_bairro" autocomplete="none" required>
+                            <label for="inp_bairro">Cidade / Bairro</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12">
+                            <label for="inp_msg" autocomplete="none" >Mensagem</label>
+                            <textarea rows="2" type="text" id="inp_msg" required> </textarea> 
+                        </div>
+                        <button style="display: none;" id="aponta" type="submit"> Enviar </button>
+                        <button onclick="animacao()" type="button"> Enviar </button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            
+            <div class="sucesso">
+                <h2>Prontinho, Sua Mensagem já foi enviada!</h2>
+                <p>Logo entraremos em contato.</p>
+            </div>
+
+            
+
+
+        </div>
+        <ul class="menu">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./sobre.html">Sobre nós</a></li>
+            <li><a href="./limabox.html">Lima Box</a></li>      
+            <li><a href="./galeria.html">Galeria</a></li>      
+            <li><a href="#" onclick="toggle();">Contato</a></li>
+            <li><a href="./orcamento.html">Orçamento</a></li>
+        </ul>
+
+    </section>
+
+    <script src="./framework/jquery-3.5.1.min.js"></script>
+    <script src="./framework/bootstrap.min.js" ></script>
+
+    <script type="text/javascript">
+        function toggle(){
+            const toggle = document.querySelector('.toggle');
+            const banner = document.querySelector('.banner');
+
+            toggle.classList.toggle('ativo');
+            banner.classList.toggle('ativo')
+        }
+        function tamanho(){
+            const conteudo = document.querySelector('.conteudo')
+            const cabecalho = document.querySelector('header')
+
+            conteudo.style.marginTop = cabecalho.style.height + 20;
+            
+            aparece()
+
+        }
+        window.onload = tamanho()
+
+        function aparece(){            
+            $('body').animate({
+                opacity: 1
+            },1200, function(){})
+        }
+
+        window.onscroll = function() {myFunction()};
+
+
+        var navbar = document.querySelector("header");
+
+        function myFunction() {
+        if (window.pageYOffset != 0) {
+            navbar.classList.add("preso")
+        } else {
+            navbar.classList.remove("preso");
+        }
+        }
+        
+        function animacao(){
+            a = true
+            $('form input').each(function () {
+                if ($(this).val() == '') {
+                    console.log('vazou');
+                    a=false
+                }
+            });
+
+            if(a == true){
+                console.log('foi')
+                $('.form-group').fadeOut(300)
+                $('.formulario').animate({
+                    left:'2000px'
+                },1100,function(){
+                    $('.sucesso').animate({
+                        opacity:1
+                        
+                    },200,function(){})
+
+                })
+            }else{
+                $('#aponta').click()
+            }
+
+
+            
+
+            // inserir seu request ajax
+            // $.ajax({
+            //     url: 'funcao.php',
+            //     cache: false,
+            //     type: "POST",
+            //     success: function(){
+
+            //     }
+            // })
+
+        }
+
+
+
+        
+    </script>
+</body>
+</html>

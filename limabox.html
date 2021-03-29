@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lima box</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./framework/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <section class="banner">
+        <header>
+            <img src="./logo.png" alt="" class="logo" onclick="toggle();">
+            <div class="toggle" onclick="toggle();"></div>
+        </header>
+        <div class="conteudo mb-5">
+            <div class="imagens">
+                <img src="./assets/limabox.jpg" alt="logo lima mudanc" >
+            </div>
+            <div class="texto">
+                <h2>Lima Box</h2>
+                <p>Com o passar do tempo, foi notado um padrão na necessidade dos clientes. Muitos deles, por diversas razões como: se mudar para uma residência menor, comprar novos móveis ou precisar realizar reformas no local antes de concluir a mudança.</p>
+                <br>
+                <p>Afim de resolver essa necessidade, a Lima , prezando sempre pela facilidade do cliente na mudança, criou o serviço <span>Limabox</span></p>           
+            </div>
+        </div>
+
+        <div class="conteudo mt-5 mb-5">
+            <div class="texto">
+                <h2>O que é?</h2>
+                <p>O Limabox consiste em um sistema de depósitos da Lima mudanças integrado com o serviço de mudança pronto para atender a eventual demanda do cliente que por qualquer motivo precise guardar seus valioso móveis.</p>
+                <br>
+                <p>Com o <span>Limabox</span>, assim como todo serviço prestado pela Lima, o conforto do cliente vem em primeiro lugar. Evitando assim a dor de cabeça de contratar um terceiro para armazenar seus móveis e ter que realizar toda essa logística.</p>
+                <a href="./contato.html">Entrar em contato</a>                
+            </div>
+            <div class="imagens">
+                <img src="./assets/limabox2.jpg" alt="logo lima mudanc" >
+            </div>
+        </div>
+
+        <ul class="menu">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./sobre.html">Sobre nós</a></li>
+            <li><a href="#" onclick="toggle();">Lima Box</a></li>
+            <li><a href="./galeria.html">Galeria</a></li>  
+            <li><a href="./contato.html">Contato</a></li>
+            <li><a href="./orcamento.html">Orçamento</a></li>
+
+        </ul>
+
+    </section>
+
+    <script src="./framework/jquery-3.5.1.min.js"></script>
+    <script src="./framework/bootstrap.min.js" ></script>
+
+    <script type="text/javascript">
+        function toggle(){
+            const toggle = document.querySelector('.toggle');
+            const banner = document.querySelector('.banner');
+
+            toggle.classList.toggle('ativo');
+            banner.classList.toggle('ativo')
+        }
+        function tamanho(){
+            const conteudo = document.querySelector('.conteudo')
+            const cabecalho = document.querySelector('header')
+
+            conteudo.style.marginTop = cabecalho.style.height + 20;
+            
+            aparece()
+
+        }
+        window.onload = tamanho()
+
+        function aparece(){            
+            $('body').animate({
+                opacity: 1
+            },1200, function(){})
+        }
+
+        window.onscroll = function() {myFunction()};
+
+
+        var navbar = document.querySelector("header");
+
+        function myFunction() {
+        if (window.pageYOffset != 0) {
+            navbar.classList.add("preso")
+        } else {
+            navbar.classList.remove("preso");
+        }
+        }
+        
+        
+    </script>
+</body>
+</html>

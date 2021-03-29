@@ -1,0 +1,2273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./framework/bootstrap.min.css">
+    <link rel="stylesheet" href="css_inicial.css">
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    
+    <section class="banner">
+        <header>
+            <img src="./logo.png" alt="" class="logo" onclick="toggle();">
+            <div class="toggle" onclick="toggle();"></div>
+        </header>
+        <div class="conteudo" style="align-items: center;flex-direction: column;">
+            <select autocomplete="off" class="formselect typeform">
+                <option selected="">Tipo de Orçamento:</option>
+                <option value="residencial">Residencial</option>
+                <option value="comercial">Comercial</option>
+            </select>
+            <div class="form hide">
+                <h2>Faça seu orçamento</h2>
+                <form style="margin-left: 20px;" method="POST">
+                <input type="text" style="display: none;" name="solicitante-title" value="Dados do Solicitante">
+                    <h3>Dados de solicitante</h3>
+                    <div class="agroup">
+                        <div class="group">
+                            <label>Nome</label>
+                            <input type="text" name="Nome" required="">
+                            <label>E-mail</label>
+                            <input type="text" name="E-mail" required="">
+                        </div>
+                        <div class="group">
+                            <label>Sobrenome</label>
+                            <input type="text" name="Sobrenome" required="">
+                            <label>Telefone</label>
+                            <input type="text" name="Telefone" required="">
+                        </div>
+                    </div>
+                    <input type="text" style="display: none;" name="origem-title" value="Endereco de Origem">
+                    <h3>Endereço de origem</h3>
+                    <div class="agroup">
+                        <div class="group">
+                            <label>Logradouro</label>
+                            <input type="text" name="Logradouro" required="">
+                            <label>Bairro</label>
+                            <input type="text" name="Bairro" required="">
+                            <label>Cidade / Estado</label>
+                            <input type="text" name="Cidade" required="">
+                            <label>Ponto de referência</label>
+                            <input type="text" name="Referencia" required="">
+                        </div>
+                        <div class="group">
+                            <label>Desmont. de móveis</label>
+                            <select name="Desmontagem de moveis">&nbsp;&nbsp; 
+                                <option>Selecione</option>&nbsp;&nbsp; 
+                                <option value="Nao">Não</option>
+                                <option value="Sim">Sim</option>
+                            </select>
+                            <label>Quantidade de Embalagens *</label>
+                            <input type="text" name="Embalagens" required="">
+                            <label>Data de saída</label>
+                            <input type="text" name="Data de saida" required="">
+                            <label>Hora de saída</label>
+                            <input type="text" name="Hora de saida" required="">
+                        </div>
+                    </div>
+                    <h4>* Caixas papelão 40cm largura 60cm comprimento 40cm altura</h4>
+                    <input type="text" style="display: none;" name="destino-title" value="Endereco de Destino">
+                    <h3>Endereço de destino</h3>
+                    <div class="agroup">
+                        <div class="group">
+                            <label>Logradouro</label>
+                            <input type="text" name="Logradouro de chegada" required="">
+                            <label>Bairro</label>
+                            <input type="text" name="Bairro de chegada" required="">
+                            <label>Cidade / Estado</label>
+                            <input type="text" name="Cidade de chegada" required="">
+                            <label>Ponto de referência</label>
+                            <input type="text" name="Referencia de chegada" required="">
+                        </div>
+                        <div class="group">
+                            <label>Montagem de móveis</label>
+                            <select name="Montagem de moveis" required="">&nbsp;&nbsp; 
+                                <option>Selecione</option>&nbsp;&nbsp; 
+                                <option value="Nao">Não</option>
+                                <option value="Sim">Sim</option>
+                            </select>
+                            <label>Data de chegada</label>
+                            <input type="text" name="Data de chegada" required="">
+                            <label>Hora de chegada</label>
+                            <input type="text" name="Hora de chegada" required="">
+                        </div>
+                    </div>
+                    <input type="text" style="display: none;" name="transporte-title" value="Itens para Transporte">
+                    <h3>Selecione abaixo os itens e suas quantidades a serem transportados:</h3>
+                        <h3 class="residencial title hide">Sala</h3>
+                                        <input type="text" style="display: none;" name="Sala-title" value="Sala">
+                                        <div class="hide agroup residencial">
+                                            <div class="agroup-itens">
+                                                <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Abajur</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Abajur-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cadeira Braço</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cadeira Braço-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cristaleira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cristaleira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Espelho</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Espelho-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesinha de Telefone</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesinha de Telefone-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Aparelho de DVD</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Aparelho de DVD-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Prateleira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Prateleira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sofa 3 Lugares</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sofa 3 Lugares-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>TV</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="TV-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa Jantar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa Jantar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Aparador</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Aparador-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cadeira Simples</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cadeira Simples-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cortinas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cortinas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Estante Alta</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Estante Alta-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Piano Cauda</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Piano Cauda-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Jogo de Porcelanas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Jogo de Porcelanas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Rack</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Rack-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sofa 4 Lugares</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sofa 4 Lugares-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Video Cassete</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Video Cassete-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa Jogo Dobrável</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa Jogo Dobrável-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><div class="hide agroup residencial"><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Aparelho de Som</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Aparelho de Som-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Caixas de Som</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Caixas de Som-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Escrivaninha</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Escrivaninha-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Estante Baixa</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Estante Baixa-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Vaso Decorativo</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Vaso Decorativo-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sofa Cama</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sofa Cama-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Buffet</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Buffet-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sofa em L</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sofa em L-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa Centro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa Centro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa Lateral</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa Lateral-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Bar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Bar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Circulador de Ar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Circulador de Ar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Home Theater</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Home Theater-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Lustre</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Lustre-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa TV</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa TV-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Poltrona</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Poltrona-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sofa 2 Lugares</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sofa 2 Lugares-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Tapetes</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Tapetes-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Jogos de Cristais</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Jogos de Cristais-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa Redonda</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa Redonda-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><h3 class="residencial title hide">Dormitórios</h3>
+                                        <input type="text" style="display: none;" name="Dormitórios-title" value="Dormitórios">
+                                        <div class="hide agroup residencial">
+                                            <div class="agroup-itens">
+                                                <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Baú</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Baú-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário 6 Portas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário 6 Portas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cabideiro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cabideiro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cama Casal King Size</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cama Casal King Size-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Colchão de Casal</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Colchão de Casal-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mala</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mala-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário 2 Portas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário 2 Portas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Banqueta</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Banqueta-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cadeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cadeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cama Casal (Queen Size)</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cama Casal (Queen Size)-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Colchão Solteiro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Colchão Solteiro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Penteadeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Penteadeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário 3 Portas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário 3 Portas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Berço com Colchão</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Berço com Colchão-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cama Beliche</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cama Beliche-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cama de Solteiro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cama de Solteiro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cômoda</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cômoda-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sapateira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sapateira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário 4 Portas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário 4 Portas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Circulador de Ar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Circulador de Ar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><div class="hide agroup residencial"><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cama de Casal</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cama de Casal-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Carrinho de Bebê</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Carrinho de Bebê-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Criado-Mudo</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Criado-Mudo-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><h3 class="residencial title hide">Cozinha</h3>
+                                        <input type="text" style="display: none;" name="Cozinha-title" value="Cozinha">
+                                        <div class="hide agroup residencial">
+                                            <div class="agroup-itens">
+                                                <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário 2 partes alto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário 2 partes alto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cesto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cesto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Geladeira Duplex</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Geladeira Duplex-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Fogão Pequeno</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Fogão Pequeno-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Lava Louças</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Lava Louças-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário 2 Partes Baixo</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário 2 Partes Baixo-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Escada</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Escada-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Micro-Ondas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Micro-Ondas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Freezer Vertical</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Freezer Vertical-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Lava Roupas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Lava Roupas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário parede - p/peça</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário parede - p/peça-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Exaustor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Exaustor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Filtro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Filtro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Geladeira Simples</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Geladeira Simples-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Máquina de Lavar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Máquina de Lavar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Botijão de Gás</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Botijão de Gás-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Forno Elétrico</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Forno Elétrico-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Fogão Grande</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Fogão Grande-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Geladeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Geladeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa Fórmica</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa Fórmica-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><h3 class="residencial title hide">Escritório</h3>
+                                        <input type="text" style="display: none;" name="Escritório-title" value="Escritório">
+                                        <div class="hide agroup residencial">
+                                            <div class="agroup-itens">
+                                                <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Ar Condicionado</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Ar Condicionado-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cofre</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cofre-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Computador laptop</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Computador laptop-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Estante de Aço</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Estante de Aço-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário de Aço</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário de Aço-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Escrivaninha</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Escrivaninha-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa de Escritório</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa de Escritório-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Arquivo</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Arquivo-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Estante de Madeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Estante de Madeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Gaveteiro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Gaveteiro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cadeiras Executivas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cadeiras Executivas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Impressoras</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Impressoras-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Bebedouro Elétrico</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Bebedouro Elétrico-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Estante de Aço</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Estante de Aço-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><h3 class="residencial title hide">Outros / Diversos</h3>
+                                        <input type="text" style="display: none;" name="Outros / Diversos-title" value="Outros / Diversos">
+                                        <div class="hide agroup residencial">
+                                            <div class="agroup-itens">
+                                                <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Aquecedor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Aquecedor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Esteiras Elétricas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Esteiras Elétricas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Máquina de Costura Móvel</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Máquina de Costura Móvel-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Bicicletas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Bicicletas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mini-system</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mini-system-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Máquina de Costura Portátil</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Máquina de Costura Portátil-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Bicicleta Ergométrica</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Bicicleta Ergométrica-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Livros</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Livros-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Vasos de Plantas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Vasos de Plantas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cercado de Criança</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cercado de Criança-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Violão</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Violão-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Ventilador de Teto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Ventilador de Teto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><h3 class="comercial title hide">Eletro Eletrônicos</h3>
+                                        <input type="text" style="display: none;" name="Eletro Eletrônicos-title" value="Eletro Eletrônicos">
+                                        <div class="hide agroup comercial">
+                                            <div class="agroup-itens">
+                                                <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Arquivo de Aço</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Arquivo de Aço-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário Baixo 2p</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário Baixo 2p-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Estante de Madeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Estante de Madeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Prateleiras de Madeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Prateleiras de Madeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa em L</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa em L-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa de Canto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa de Canto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Bebedouro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Bebedouro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Caixa para Diversos</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Caixa para Diversos-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cadeira giratória</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cadeira giratória-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Chapeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Chapeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Exaustor Comum</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Exaustor Comum-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Relógio de Parede</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Relógio de Parede-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Vasos Decorativos</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Vasos Decorativos-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sofá 2 Lugares</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sofá 2 Lugares-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Tampo de Vidro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Tampo de Vidro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Fogão Comum</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Fogão Comum-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário Alto 2p</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário Alto 2p-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Computadores Desktop</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Computadores Desktop-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Impressora</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Impressora-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Máquina Xerox</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Máquina Xerox-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><div class="hide agroup comercial"><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Fax</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Fax-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Geladeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Geladeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Ventilador de Teto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Ventilador de Teto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Computadores Laptop</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Computadores Laptop-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Scanner</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Scanner-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>TV</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="TV-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Freezer Comum</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Freezer Comum-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Ar Condicionado</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Ar Condicionado-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Ventilador de Pé</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Ventilador de Pé-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Servidor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Servidor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>NoBreak</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="NoBreak-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Som</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Som-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Freezer Industrial</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Freezer Industrial-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Luminária</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Luminária-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Monitor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Monitor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Retro-Projetor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Retro-Projetor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Circulador de ar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Circulador de ar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Frigobar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Frigobar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Forno Elétrico</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Forno Elétrico-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Divisórias</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Divisórias-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><div class="hide agroup comercial"><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Exaustor Industrial</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Exaustor Industrial-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Tampo de Marmore</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Tampo de Marmore-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Maquina de Escrever</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Maquina de Escrever-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sofá 3 Lugares</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sofá 3 Lugares-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Tampo de Granito</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Tampo de Granito-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Fogão Industrial</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Fogão Industrial-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário Alto 4p</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário Alto 4p-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário Baixo + de 5p</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário Baixo + de 5p-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Gaveteiro Alto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Gaveteiro Alto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Bancada</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Bancada-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa Recepção</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa Recepção-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Prancha para Desenho</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Prancha para Desenho-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Balança de Precisão</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Balança de Precisão-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cofre</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cofre-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Cesto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Cesto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Extintor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Extintor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Lousas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Lousas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Quadros</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Quadros-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Sofá em L</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Sofá em L-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Lustre</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Lustre-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><div class="hide agroup comercial"><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Armário Alto + de 5p</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Armário Alto + de 5p-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Estante de Aço</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Estante de Aço-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Prateleiras de Aço</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Prateleiras de Aço-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa Escritório</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa Escritório-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Mesa para Computador</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Mesa para Computador-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Balcão</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Balcão-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Caixa para Documento</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Caixa para Documento-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Lixeira Pequena</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Lixeira Pequena-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Espelhos</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Espelhos-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Persianas</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Persianas-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Capacho</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Capacho-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Relógio de Ponto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Relógio de Ponto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Poltrona</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Poltrona-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Filtro</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Filtro-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><h3 class="comercial title hide">Eletro Eletrônicos</h3>
+                                        <input type="text" style="display: none;" name="Eletro Eletrônicos-title" value="Eletro Eletrônicos">
+                                        <div class="hide agroup comercial">
+                                            <div class="agroup-itens">
+                                                <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Computadores Desktop</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Computadores Desktop-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Impressora</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Impressora-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Máquina Xerox</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Máquina Xerox-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Fax</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Fax-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Geladeira</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Geladeira-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Ventilador de Teto</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Ventilador de Teto-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Computadores Laptop</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Computadores Laptop-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Scanner</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Scanner-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>TV</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="TV-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Freezer Comum</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Freezer Comum-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Ar Condicionado</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Ar Condicionado-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Ventilador de Pé</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Ventilador de Pé-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Servidor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Servidor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>NoBreak</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="NoBreak-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Som</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Som-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Freezer Industrial</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Freezer Industrial-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Luminária</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Luminária-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Monitor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Monitor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Retro-Projetor</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Retro-Projetor-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Circulador de ar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Circulador de ar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div><div class="hide agroup comercial"><div class="agroup-itens">
+                                        <div class="group"><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Frigobar</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Frigobar-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div><div class="item align-item">
+                                        <label class="container">
+                                            <input type="checkbox" class="check-item">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <p>Forno Elétrico</p>
+                                        <div class="quantidade hide">
+                                            <input type="text" value="0" class="qnt-item" name="Forno Elétrico-qnt">
+                                            <p>Quantidade</p>
+                                        </div>
+                                    </div></div></div></div>                    <h3>Outros itens?</h3>
+                    <div class="agroup">
+                        <div class="group">
+                            <h4>Insira um item e sua quantidade...</h4>
+                            <div class="item-submit">
+                                <input id="item-name" type="text" placeholder="Insira o nome...">
+                                <input id="item-qnt" type="text" class="qnt" placeholder="Qnt...">
+                                <button type="button" id="btn-item-submit">Criar Item</button>
+                            </div>
+                            <input style="display: none;" name="elements" id="elements" value="">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-solicitar" name="sendorcamento">Solicitar Orçamento</button>
+                </form>
+            </div>
+            </div>
+        </div>
+        <ul class="menu">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./sobre.html">Sobre nós</a></li>
+            <li><a href="./limabox.html">Lima Box</a></li>
+            <li><a href="./galeria.html">Galeria</a></li>  
+            <li><a href="./contato.html">Contato</a></li>
+            <li><a href="#" onclick="toggle();">Orçamento</a></li>
+        </ul>
+
+    </section>
+
+    <script src="./framework/jquery-3.5.1.min.js"></script>
+    <script src="./framework/bootstrap.min.js" ></script>
+    <script src="./orcamento.js" ></script>
+
+
+
+    <script type="text/javascript">
+        function toggle(){
+            const toggle = document.querySelector('.toggle');
+            const banner = document.querySelector('.banner');
+
+            toggle.classList.toggle('ativo');
+            banner.classList.toggle('ativo')
+        }
+        function tamanho(){
+            const conteudo = document.querySelector('.conteudo')
+            const cabecalho = document.querySelector('header')
+
+            conteudo.style.marginTop = cabecalho.style.height + 20;
+            
+            aparece()
+
+        }
+        window.onload = tamanho()
+
+        function aparece(){            
+            $('body').animate({
+                opacity: 1
+            },1200, function(){})
+        }
+
+        window.onscroll = function() {myFunction()};
+
+
+        var navbar = document.querySelector("header");
+
+        function myFunction() {
+        if (window.pageYOffset != 0) {
+            navbar.classList.add("preso")
+        } else {
+            navbar.classList.remove("preso");
+        }
+        }
+        
+        
+    </script>
+</body>
+</html>
